@@ -1,0 +1,139 @@
+{{ define "main" }}
+{{ if .Params.nom_scientifique }}
+
+{{/* ── Page fiche espèce ── */}}
+{{ $photo := .Resources.GetMatch "photo*" }}
+{{ $slugMap := dict "Oiseaux" "oiseaux" "Insectes" "insectes" "Mammifères" "mammiferes" "Reptiles" "reptiles" "Plantes" "plantes" "Champignons" "champignons" "Végétaux" "vegetaux" }}
+{{ $slug := index $slugMap .Params.categorie | default (.Params.categorie | lower) }}
+{{ $iconMap := dict "Oiseaux" "🐦" "Insectes" "🦋" "Mammifères" "🦊" "Reptiles" "🦎" "Plantes" "🌿" "Champignons" "🍄" "Végétaux" "🌱" }}
+{{ $icon := index $iconMap .Params.categorie | default "🌿" }}
+
+<div class="species-single">
+  <nav class="species-breadcrumb" aria-label="Fil d'Ariane">
+    <a href="{{ "/" | relURL }}">Accueil</a>
+    <span>/</span>
+    <a href="{{ .Parent.Parent.Permalink }}">{{ .Parent.Parent.Title }}</a>
+    <span>/</span>
+    <a href="{{ .Parent.Permalink }}">{{ .Parent.Title }}</a>
+    <span>/</span>
+    <span>{{ .Title }}</span>
+  </nav>
+
+  <div class="species-layout">
+    <div class="species-photo">
+      {{ if $photo }}
+      <button class="lightbox-trigger" aria-label="Agrandir la photo">
+        <img src="{{ $photo.RelPermalink }}" alt="{{ .Title }}">
+        <span class="lightbox-hint" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </span>
+      </button>
+      {{ else }}
+      <div class="species-photo-placeholder">{{ $icon }}</div>
+      {{ end }}
+    </div>
+
+    <div class="species-info">
+      <div class="species-info-badge">
+        <span class="badge badge-{{ $slug }}">{{ .Params.categorie }}</span>
+      </div>
+
+      <h1 class="species-name">{{ .Title }}</h1>
+      <p class="species-scientific">{{ .Params.nom_scientifique }}</p>
+
+      <div class="species-divider"></div>
+
+      {{/* ── Section 1 : Informations scientifiques ── */}}
+      <section class="species-section">
+        <h2 class="species-section-title">Informations scientifiques</h2>
+        <dl class="species-meta">
+          {{ with .Params.taille }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Taille</dt>
+            <dd class="species-meta-value">{{ . }}</dd>
+          </div>
+          {{ end }}
+          {{ with .Params.poids }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Poids</dt>
+            <dd class="species-meta-value">{{ . }}</dd>
+          </div>
+          {{ end }}
+          {{ with .Params.habitat }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Habitat</dt>
+            <dd class="species-meta-value">{{ . }}</dd>
+          </div>
+          {{ end }}
+          {{ with .Params.regime_alimentaire }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Régime</dt>
+            <dd class="species-meta-value">{{ . }}</dd>
+          </div>
+          {{ end }}
+          {{ with .Params.statut_iucn }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Statut IUCN</dt>
+            <dd class="species-meta-value">
+              <span class="badge-iucn badge-iucn--{{ . | lower }}">{{ . }}</span>
+            </dd>
+          </div>
+          {{ end }}
+        </dl>
+      </section>
+
+      <div class="species-divider"></div>
+
+      {{/* ── Section 2 : Mon observation ── */}}
+      <section class="species-section">
+        <h2 class="species-section-title">Mon observation</h2>
+        <dl class="species-meta">
+          {{ with .Params.lieu }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Lieu</dt>
+            <dd class="species-meta-value">{{ . }}</dd>
+          </div>
+          {{ end }}
+          {{ with .Params.date_observation }}
+          <div class="species-meta-item">
+            <dt class="species-meta-label">Date</dt>
+            <dd class="species-meta-value">
+              {{ $t := time . }}
+              {{ printf "%d %s %d" $t.Day (index (slice "" "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre") $t.Month) $t.Year }}
+            </dd>
+          </div>
+          {{ end }}
+        </dl>
+        {{ with .Content }}
+        <div class="species-description">{{ . }}</div>
+        {{ end }}
+      </section>
+    </div>
+  </div>
+</div>
+
+{{ if $photo }}
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <div class="lightbox-backdrop"></div>
+  <button class="lightbox-close" aria-label="Fermer la photo">
+    <span aria-hidden="true">Fermer</span>
+    <span class="lightbox-close-x" aria-hidden="true">×</span>
+  </button>
+  <figure class="lightbox-figure">
+    <img src="" alt="" class="lightbox-img">
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+</div>
+<script src="{{ "/js/lightbox.js" | relURL }}"></script>
+{{ end }}
+
+{{ else }}
+
+{{/* ── Page standard (À propos, etc.) ── */}}
+<div class="page-content">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</div>
+
+{{ end }}
+{{ end }}

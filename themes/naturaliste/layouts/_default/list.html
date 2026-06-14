@@ -1,0 +1,46 @@
+{{ define "main" }}
+{{ $isTopSection := .Parent.IsHome }}
+
+<div class="container">
+  <div class="page-header">
+    {{ if not $isTopSection }}
+    <p class="page-header-eyebrow">
+      <a href="{{ .Parent.Permalink }}">{{ .Parent.Title }}</a> /
+    </p>
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-header-desc">{{ . }}</div>{{ end }}
+  </div>
+
+  {{/* Navigation entre sous-catégories */}}
+  {{ if $isTopSection }}
+  <nav class="subcats-nav" aria-label="Sous-catégories">
+    <a href="{{ .Permalink }}" class="active">Tout voir</a>
+    {{ range .Sections }}
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ end }}
+  </nav>
+  {{ else }}
+  <nav class="subcats-nav" aria-label="Sous-catégories">
+    <a href="{{ .Parent.Permalink }}">Tout voir</a>
+    {{ range .Parent.Sections }}
+    <a href="{{ .Permalink }}"{{ if eq .Title $.Title }} class="active"{{ end }}>{{ .Title }}</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+
+  {{/* Grille des espèces */}}
+  {{ $pages := cond $isTopSection .RegularPagesRecursive .Pages }}
+  {{ if $pages }}
+  <div class="species-grid">
+    {{ range $pages }}
+    {{ if .Params.nom_scientifique }}
+    {{ partial "species-card.html" . }}
+    {{ end }}
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="empty-state">Aucune espèce pour le moment.</p>
+  {{ end }}
+</div>
+{{ end }}

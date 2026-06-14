@@ -1,0 +1,13 @@
+baseURL = "https://example.com"
+languageCode = "fr"
+defaultContentLanguage = "fr"
+title = "Portfolio Léo LUCAS"
+theme = "naturaliste"
+
+[params]
+  author = "Léo LUCAS"
+  description = "Portfolio naturaliste — Observations de la faune et de la flore"
+  tagline = "Carnet de terrain"
+
+[markup.goldmark.renderer]
+  unsafe = true

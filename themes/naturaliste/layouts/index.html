@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="home-hero">
+  <div class="container">
+    <p class="home-hero-eyebrow">{{ .Site.Params.tagline }}</p>
+    <h1>Observations de la <em>nature</em></h1>
+    <div class="home-divider"><span>✦</span></div>
+    <p class="home-hero-intro">{{ .Content }}</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="home-sections">
+    {{ range .Site.Sections }}
+    {{ $isFaune := eq .Section "faune" }}
+    <a href="{{ .Permalink }}" class="home-section-card{{ if not $isFaune }} home-section-card--flore{{ end }}">
+      <div class="home-section-icon">{{ if $isFaune }}🦉{{ else }}🌿{{ end }}</div>
+      <h2 class="home-section-title">{{ .Title }}</h2>
+      <p class="home-section-desc">
+        {{ if $isFaune }}Oiseaux, insectes, mammifères, reptiles — la vie animale observée dans leurs milieux naturels.
+        {{ else }}Plantes, champignons, végétaux — le monde végétal capturé au fil des saisons.{{ end }}
+      </p>
+      <div class="home-section-subcats">
+        {{ range .Sections }}
+        <span class="home-section-subcat">{{ .Title }}</span>
+        {{ end }}
+      </div>
+      <span class="home-section-link">Explorer {{ .Title }} →</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

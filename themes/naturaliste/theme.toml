@@ -1,0 +1,6 @@
+name = "Naturaliste"
+license = "MIT"
+licenselink = ""
+description = "Thème carnet de terrain pour portfolio naturaliste"
+homepage = ""
+min_version = "0.110.0"

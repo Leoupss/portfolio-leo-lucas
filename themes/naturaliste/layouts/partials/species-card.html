@@ -1,0 +1,29 @@
+{{ $photo := .Resources.GetMatch "photo*" }}
+{{ $slugMap := dict "Oiseaux" "oiseaux" "Insectes" "insectes" "Mammifères" "mammiferes" "Reptiles" "reptiles" "Plantes" "plantes" "Champignons" "champignons" "Végétaux" "vegetaux" }}
+{{ $slug := index $slugMap .Params.categorie | default (.Params.categorie | lower) }}
+{{ $iconMap := dict "Oiseaux" "🐦" "Insectes" "🦋" "Mammifères" "🦊" "Reptiles" "🦎" "Plantes" "🌿" "Champignons" "🍄" "Végétaux" "🌱" }}
+{{ $icon := index $iconMap .Params.categorie | default "🌿" }}
+
+<a href="{{ .Permalink }}" class="species-card">
+  <div class="species-card-photo-wrap">
+    {{ if $photo }}
+    <img src="{{ $photo.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+    {{ else }}
+    <div class="species-card-photo-placeholder">{{ $icon }}</div>
+    {{ end }}
+  </div>
+  <div class="species-card-body">
+    <div class="species-card-badge">
+      <span class="badge badge-{{ $slug }}">{{ .Params.categorie }}</span>
+    </div>
+    <div class="species-card-name">{{ .Title }}</div>
+    {{ with .Params.nom_scientifique }}
+    <div class="species-card-scientific">{{ . }}</div>
+    {{ end }}
+    {{ with .Params.lieu }}
+    <div class="species-card-meta">
+      <span>📍</span> {{ . }}
+    </div>
+    {{ end }}
+  </div>
+</a>

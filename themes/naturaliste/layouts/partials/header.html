@@ -1,0 +1,37 @@
+<header class="site-header">
+  <nav class="site-nav container" aria-label="Navigation principale">
+    <a href="{{ "/" | relURL }}" class="nav-logo">
+      Portfolio <span>Léo LUCAS</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <ul class="nav-links" role="list">
+      <li>
+        <a href="{{ "/" | relURL }}"{{ if .IsHome }} class="active"{{ end }}>Accueil</a>
+      </li>
+      {{ range .Site.Sections }}
+      {{ $isActive := eq $.FirstSection.Section .Section }}
+      <li class="nav-dropdown">
+        <a href="{{ .Permalink }}"{{ if $isActive }} class="active"{{ end }}>
+          {{ .Title }}&thinsp;<span class="dropdown-arrow" aria-hidden="true">▾</span>
+        </a>
+        {{ if .Sections }}
+        <ul class="dropdown-menu">
+          {{ range .Sections }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </li>
+      {{ end }}
+      <li>
+        <a href="{{ "/a-propos/" | relURL }}"{{ if eq .Title "À propos" }} class="active"{{ end }}>À propos</a>
+      </li>
+    </ul>
+  </nav>
+</header>

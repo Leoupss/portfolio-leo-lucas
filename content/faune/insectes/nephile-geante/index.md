@@ -11,5 +11,3 @@ lieu: "Bang Kachao, Bangkok, Thaïlande"
 date_observation: "2026-05-30"
 draft: false
 ---
-
-Femelle imposante suspendue au centre d'une toile dorée d'un mètre de diamètre tendue entre deux arbres. La soie jaune d'or, caractéristique de l'espèce, scintillait dans les rais de lumière filtrant à travers la canopée. Plusieurs petits mâles, dix fois moins grands, étaient visibles en périphérie de la toile — une asymétrie sexuelle saisissante.

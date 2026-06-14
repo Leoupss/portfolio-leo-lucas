@@ -11,4 +11,3 @@ lieu: "Bang Kachao, Bangkok, Thaïlande"
 date_observation: "2026-05-30"
 draft: false
 ---
-

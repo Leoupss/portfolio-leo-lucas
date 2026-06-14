@@ -11,5 +11,3 @@ lieu: "Bang Kachao, Bangkok, Thaïlande"
 date_observation: "2026-05-30"
 draft: false
 ---
-
-Découvert lentement traversant un sentier de terre battue en sous-bois. Son corps cylindrique brun-rouge, composé de dizaines de segments, ondulait avec une fluidité surprenante. Lorsque je l'ai approché, il s'est enroulé en spirale serrée — réflexe défensif caractéristique des diplopodes. Impressionnant spécimen pour un arthropode terrestre.

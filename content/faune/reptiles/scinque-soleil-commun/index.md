@@ -11,5 +11,3 @@ lieu: "Bang Kachao, Bangkok, Thaïlande"
 date_observation: "2026-05-30"
 draft: false
 ---
-
-Surpris en train de se chauffer au soleil sur une roche plate en bordure de sentier. Ses écailles bronzées à reflets cuivrés luisaient intensément dans la lumière de fin de matinée. À mon approche, il a disparu dans les hautes herbes en un éclair, ses pattes courtes propulsant son corps trapu avec une rapidité étonnante.

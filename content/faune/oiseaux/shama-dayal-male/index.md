@@ -1,5 +1,5 @@
 ---
-title: "Shama dayal"
+title: "Shama dayal (mâle)"
 nom_scientifique: "Copsychus saularis"
 categorie: "Oiseaux"
 taille: "19 cm"

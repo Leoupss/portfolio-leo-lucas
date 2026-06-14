@@ -2,4 +2,4 @@
 title: "Portfolio Léo LUCAS"
 ---
 
-Observations naturalistes réalisées sur le terrain — faune et flore de la France, et d'autres pays. Chaque rencontre, notée, photographiée, consignée.
+Photographe naturaliste basé entre la France et Bangkok, je documente la faune et la flore rencontrées au fil de mes explorations — des forêts tropicales de Thaïlande aux collines françaises. Chaque espèce observée, identifiée, consignée.

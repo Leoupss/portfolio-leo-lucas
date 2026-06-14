@@ -12,4 +12,3 @@ date_observation: "2026-05-30"
 draft: false
 ---
 
-Découvert dans la canopée d'un figuier chargé de fruits. Le mâle arborait sa livrée caractéristique : dos vert olive, nuque rose pâle et poitrine lavée de gris. Se déplaçait avec agilité parmi les branches pour atteindre les petites figues, à peine audible malgré sa taille.

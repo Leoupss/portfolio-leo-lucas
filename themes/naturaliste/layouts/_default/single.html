@@ -66,7 +66,7 @@
             <dd class="species-meta-value">{{ . }}</dd>
           </div>
           {{ end }}
-          {{ with .Params.regime_alimentaire }}
+          {{ with (.Params.regime_alimentaire | default .Params.regime) }}
           <div class="species-meta-item">
             <dt class="species-meta-label">Régime</dt>
             <dd class="species-meta-value">{{ . }}</dd>

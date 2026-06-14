@@ -1,4 +1,4 @@
 ---
-title: "Fleures"
+title: "Fleurs"
 weight: 1
 ---

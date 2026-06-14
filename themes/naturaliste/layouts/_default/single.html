@@ -3,9 +3,9 @@
 
 {{/* ── Page fiche espèce ── */}}
 {{ $photo := .Resources.GetMatch "photo*" }}
-{{ $slugMap := dict "Oiseaux" "oiseaux" "Insectes" "insectes" "Mammifères" "mammiferes" "Reptiles" "reptiles" "Plantes" "plantes" "Champignons" "champignons" "Végétaux" "vegetaux" }}
+{{ $slugMap := dict "Oiseaux" "oiseaux" "Insectes" "insectes" "Mammifères" "mammiferes" "Reptiles" "reptiles" "Plantes" "plantes" "Champignons" "champignons" "Fleurs" "fleurs" "Végétaux" "vegetaux" }}
 {{ $slug := index $slugMap .Params.categorie | default (.Params.categorie | lower) }}
-{{ $iconMap := dict "Oiseaux" "🐦" "Insectes" "🦋" "Mammifères" "🦊" "Reptiles" "🦎" "Plantes" "🌿" "Champignons" "🍄" "Végétaux" "🌱" }}
+{{ $iconMap := dict "Oiseaux" "🐦" "Insectes" "🦋" "Mammifères" "🦊" "Reptiles" "🦎" "Plantes" "🌿" "Champignons" "🍄" "Fleurs" "🌸" "Végétaux" "🌱" }}
 {{ $icon := index $iconMap .Params.categorie | default "🌿" }}
 
 <div class="species-single">

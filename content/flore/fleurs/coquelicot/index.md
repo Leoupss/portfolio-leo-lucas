@@ -1,7 +1,7 @@
 ---
 title: "Coquelicot"
 nom_scientifique: "Papaver rhoeas"
-categorie: "Plantes"
+categorie: "Fleurs"
 lieu: "Champs de la Beauce, Eure-et-Loir"
 date_observation: "2024-06-10"
 draft: false

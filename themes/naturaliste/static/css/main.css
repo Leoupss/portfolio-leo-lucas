@@ -495,6 +495,7 @@ h1, h2, h3, h4 {
 .badge-reptiles   { color: var(--green-mid); }
 .badge-plantes    { color: var(--green-forest); }
 .badge-champignons{ color: var(--brown-earth); }
+.badge-fleurs     { color: #b5446e; }
 .badge-vegetaux   { color: var(--green-mid); }
 
 /* =========================================================

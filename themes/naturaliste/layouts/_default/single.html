@@ -22,7 +22,7 @@
   <div class="species-layout">
     <div class="species-photo">
       {{ if $photo }}
-      {{ $thumb := $photo.Resize "800x webp q50" }}
+      {{ $thumb := $photo.Resize "800x webp q75" }}
       <button class="lightbox-trigger" data-full-src="{{ $photo.RelPermalink }}" aria-label="Agrandir la photo">
         <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}">
         <span class="photo-copyright" aria-hidden="true">© Léo LUCAS</span>

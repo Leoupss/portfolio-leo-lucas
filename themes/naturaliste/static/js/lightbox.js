@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const srcImg     = trigger.querySelector('img');
 
   function open() {
-    lbImg.src             = srcImg.src;
+    lbImg.src             = trigger.dataset.fullSrc;
     lbImg.alt             = srcImg.alt;
     lbCaption.textContent = srcImg.alt;
     lightbox.classList.add('is-open');

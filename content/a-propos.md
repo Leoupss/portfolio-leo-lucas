@@ -4,7 +4,7 @@ title: "À propos"
 
 ## Léo LUCAS, photographe naturaliste
 
-Français basé entre Bangkok et la France, je suis gemmologue de métier et naturaliste amateur par passion. Armé de mon Canon EOS 90D et de mes objectif macro et téléobjectif, je pars régulièrement à la rencontre de la faune et de la flore sauvages.
+Français basé entre Bangkok et la France, je suis gemmologue de métier et naturaliste amateur par passion. Armé de mon Canon EOS 90D et de mes objectifs macro et téléobjectif, je pars régulièrement à la rencontre de la faune et de la flore sauvages.
 
 Ce portfolio est mon carnet de terrain numérique — une archive personnelle d'observations réalisées au fil des années et des voyages.
 

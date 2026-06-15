@@ -7,8 +7,8 @@
 <a href="{{ .Permalink }}" class="species-card">
   <div class="species-card-photo-wrap">
     {{ if $photo }}
-    {{ $thumb := $photo.Resize "600x webp q100" }}
-    <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+    {{ $img := $photo.Resize "2000x webp q100" }}
+    <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
     <span class="photo-copyright" aria-hidden="true">© Léo LUCAS</span>
     {{ else }}
     <div class="species-card-photo-placeholder">{{ $icon }}</div>
